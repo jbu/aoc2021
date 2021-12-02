@@ -1,4 +1,4 @@
-from p1_1 import do
+from p2_2 import do
 
-depths = open('data_1.txt').readlines()
+depths = open('data_2.txt').readlines()
 print(do(depths))
