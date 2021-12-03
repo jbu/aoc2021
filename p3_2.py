@@ -11,10 +11,7 @@ def do(measures: List[str]) -> int:
   while i and len(m) > 1:
     a = [x for x in m if x & i]
     b = [x for x in m if not (x & i)]
-    if len(a) >= len(b):
-      m = a
-    else:
-      m = b
+    m = a if len(a) >= len(b) else b
     i = i >> 1
   oxygen = m[0]
 
@@ -23,10 +20,7 @@ def do(measures: List[str]) -> int:
   while i and len(m) > 1:
     a = [x for x in m if x & i]
     b = [x for x in m if not (x & i)]
-    if len(a) < len(b):
-      m = a
-    else:
-      m = b
+    m = a if len(a) < len(b) else b 
     i = i >> 1
   co2 = m[0]
   return oxygen * co2
