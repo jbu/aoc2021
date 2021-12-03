@@ -1,4 +1,4 @@
-from p2_2 import do
+from p3_1 import do
 
-depths = open('data_2.txt').readlines()
-print(do(depths))
+dat = open('data_3.txt').read().splitlines()
+print(do(dat))
