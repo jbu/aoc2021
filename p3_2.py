@@ -1,6 +1,7 @@
 from typing import List
 import numpy as np
 from io import StringIO
+import bisect
 
 def do(measures: List[str]) -> int:
   """
@@ -9,21 +10,29 @@ def do(measures: List[str]) -> int:
   """
   i = 1 << len(measures[0])-1
   m = [int(i, 2) for i in measures]
-  while i:
-    if len(m) == 1:
-      break
+  while i and len(m) > 1:
     a = [x for x in m if x & i]
     b = [x for x in m if not (x & i)]
-    print('a', [x&i for x in m])
-    print('b', [f"{(x&~(i-1)):b}" for x in m])
-    print('c', [f"{x:b}" for x in a], [f"{(x|i):b}" for x in b])
-    if len(a) > len(b):
+    if len(a) >= len(b):
       m = a
     else:
       m = b
     i = i >> 1
+  oxygen = m[0]
 
-  print(f"{i:b}, {m}")
+  i = 1 << len(measures[0])-1
+  m = [int(i, 2) for i in measures]
+  while i and len(m) > 1:
+    a = [x for x in m if x & i]
+    b = [x for x in m if not (x & i)]
+    if len(a) < len(b):
+      m = a
+    else:
+      m = b
+    i = i >> 1
+  co2 = m[0]
+  return oxygen * co2
+
 
 if __name__ == "__main__":
     import doctest
