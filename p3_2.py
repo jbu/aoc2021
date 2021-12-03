@@ -10,6 +10,8 @@ def do(measures: List[str]) -> int:
   i = 1 << len(measures[0])-1
   m = [int(i, 2) for i in measures]
   while i:
+    if len(m) == 1:
+      break
     a = [x for x in m if x & i]
     b = [x for x in m if not (x & i)]
     print('a', [x&i for x in m])
