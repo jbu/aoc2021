@@ -1,6 +1,4 @@
 from typing import List
-import numpy as np
-from io import StringIO
 import bisect
 
 def do(measures: List[str]) -> int:
