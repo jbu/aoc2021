@@ -4,7 +4,7 @@ import operator
 def skriffle(measures: List[str], 
              cmp_fn: Callable[[int, int], bool]) -> int:
   i = 1 << len(measures[0])-1
-  m = sorted([int(i, 2) for i in measures])
+  m = [int(i, 2) for i in measures]
   while i and len(m) > 1:
     a = [x for x in m if x & i]
     b = [x for x in m if not (x & i)]
