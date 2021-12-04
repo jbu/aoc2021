@@ -1,4 +1,3 @@
-from more_itertools import pairwise, triplewise
 from typing import List
 
 def do(instructions: List[str]) -> int:
