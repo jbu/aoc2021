@@ -1,6 +1,4 @@
-from operator import itemgetter
-import itertools
-from collections import defaultdict, Counter
+from collections import Counter
 
 def parse_input(s: str) -> list[int]:
     return [int(i) for i in s.split(',')]
