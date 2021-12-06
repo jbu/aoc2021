@@ -9,7 +9,7 @@ def do(data: str) -> int:
   fish.update(dict(Counter(parse_input(data))))
   print(fish)
   # fish will be days: count
-  for i in range(256):  
+  for _ in range(256):  
     f0 = fish[0]
     fish = {f-1:n for f, n in fish.items() if f > 0}
     fish[6] += f0
