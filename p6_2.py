@@ -12,9 +12,8 @@ def do(data: str) -> int:
   print(fish)
   # fish will be days: count
   for i in range(256):  
-    newf = fish[0]
     f0 = fish[0]
     fish = {f-1:n for f, n in fish.items() if f > 0}
     fish[6] += f0
-    fish[8] = newf
+    fish[8] = f0
   return sum(fish.values())
