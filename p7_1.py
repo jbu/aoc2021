@@ -8,10 +8,8 @@ def do(data: str) -> int:
   37
   """
   positions = parse_input(data)
-  minp = min(positions)
-  maxp = max(positions)
   fuels = []
-  for i in range(minp, maxp + 1):
+  for i in range(min(positions), max(positions) + 1):
       f = sum([abs(p-i) for p in positions])
       fuels.append(f)
   return min(fuels)
