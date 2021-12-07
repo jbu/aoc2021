@@ -1,5 +1,3 @@
-from operator import itemgetter
-
 def parse_input(s: str) -> list[int]:
     return [int(i) for i in s.split(',')]
 
