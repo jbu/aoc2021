@@ -8,8 +8,8 @@ def do(dlist: List[str]) -> int:
   """
   depths = [int(d) for d in dlist]
   deltas = pairwise(depths)
-  deltas = [int(i[0] < i[1]) for i in deltas]
-  return sum(deltas)
+  deltas_sum = [int(i[0] < i[1]) for i in deltas]
+  return sum(deltas_sum)
 
 if __name__ == "__main__":
     import doctest

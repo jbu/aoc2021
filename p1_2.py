@@ -9,8 +9,8 @@ def do(dlist: List[str]) -> int:
   depths = [int(d) for d in dlist]
   triples = [sum(d) for d in triplewise(depths)]
   pairs = pairwise(triples)
-  pairs = [p[1] > p[0] for p in pairs]
-  return sum(pairs)
+  pairs_diff = [p[1] > p[0] for p in pairs]
+  return sum(pairs_diff)
 
 if __name__ == "__main__":
     import doctest
