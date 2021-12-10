@@ -14,7 +14,6 @@ digit_to_wires = {
 }
 wires_to_digit = {frozenset(v):k for k,v in digit_to_wires.items()}
 
-
 all_wires = {chr(i) for i in range(ord('a'), ord('g') + 1)}
 all_possible_wirings = [{(a,b) for a, b in zip(a,b)} for a, b in zip(repeat(sorted(list(all_wires))), permutations(all_wires))]
 
@@ -26,7 +25,7 @@ for k,v in digit_to_wires.items():
   else:
     length_to_digit[vl] = {k}
 
-def constrain_on_evidence(possibilities: list[set], evidence: set[str]) -> dict[chr,set]:
+def constrain_on_evidence(possibilities: list[set[tuple]], evidence: set[str]) -> list[set[tuple]]:
   possible_digits = length_to_digit[len(evidence)] # it's one of these
   remaining_possibilities = []
   for possible_digit in possible_digits:
@@ -40,7 +39,6 @@ def constrain_on_evidence(possibilities: list[set], evidence: set[str]) -> dict[
       for possibility in possibilities:
         if attempt <= possibility:
           remaining_possibilities.append(possibility)
-
   return remaining_possibilities
 
 
